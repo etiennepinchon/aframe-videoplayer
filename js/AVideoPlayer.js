@@ -3,7 +3,7 @@ var AVideoPlayer = function() {
   // Vals
   this.duration         = 0;
   this.current_progress = 0;
-  this.progressWidth    = null;
+  this.progressWidth    = 0;
   this.paused           = true;
 
   // Elems
@@ -37,6 +37,9 @@ var AVideoPlayer = function() {
   * PROGRESS
   */
   this.setProgress = function(progress) {
+    if (this.progressWidth == undefined) {
+      this.progressWidth == 4;
+    }
     var new_progress = this.progressWidth*progress;
     this._setProgressWidth(new_progress);
     var progress_coord = this._getProgressCoord();
@@ -91,7 +94,7 @@ var AVideoPlayer = function() {
     var that = this;
 
     this.elControlPlay.addEventListener('click', function () {
-      that.elAlertSound.components.sound.playSound();
+      that._playAudioAlert();
       if (that.elVideo.paused) {
         this.setAttribute('src', '#pause');
         that.elVideo.play();
@@ -108,7 +111,7 @@ var AVideoPlayer = function() {
     });
 
     this.elControlVolume.addEventListener('click', function () {
-      that.elAlertSound.components.sound.playSound();
+      that._playAudioAlert();
       if (that.elVideo.muted) {
         that.elVideo.muted = false;
         this.setAttribute('src', '#volume-normal');
@@ -119,14 +122,13 @@ var AVideoPlayer = function() {
     });
 
     this.elControlBack.addEventListener('click', function () {
-      that.elAlertSound.components.sound.playSound();
+      that._playAudioAlert();
       that.elVideo.currentTime = 0;
     });
   }
 
   this._addProgressEvent = function() {
     var that = this;
-    that.elAlertSound.components.sound.playSound();
     this.elProgressBar.addEventListener('click', function (e) {
       if (e.detail == undefined || e.detail.intersection == undefined || that.duration === 0) {
         return;
@@ -138,6 +140,12 @@ var AVideoPlayer = function() {
       } catch (e) {
       }
     });
+  }
+
+  this._playAudioAlert = function() {
+    if (this.elAlertSound.components !== undefined && this.elAlertSound.components.sound !== undefined) {
+      this.elAlertSound.components.sound.playSound();
+    }
   }
 
   /**
