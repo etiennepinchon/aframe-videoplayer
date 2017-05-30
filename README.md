@@ -3,6 +3,8 @@
 A webVR video player made quickly with [A-Frame](https://aframe.io).
 It allows the user to play, pause, mute, rewind and seek.
 
+[![Alt text](https://img.youtube.com/vi/QTZCfMnUl7A/0.jpg)](https://www.youtube.com/watch?v=QTZCfMnUl7A)
+
 ### Install/Run
 ```
 npm install && npm start
