@@ -17,4 +17,7 @@ npm install && npm start
 ### Mobile friendly!
 Tested on an android phone, it works!
 
+### TODO
+- Migrate the player to an aframe component.
+
 Feel free to improve it! :)
