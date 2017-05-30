@@ -168,7 +168,7 @@ var AVideoPlayer = function() {
 
   this.init = function() {
     this._initElements();
-    this._determinateProgressWidth();
+    //this._determinateProgressWidth();
     this.setProgress(this.current_progress);
     this._addPlayerEvents();
     this._addControlsEvent();
