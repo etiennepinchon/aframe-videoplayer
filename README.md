@@ -14,4 +14,7 @@ It allows the user to play, pause, mute, rewind and seek.
 npm install && npm start
 ```
 
+### Mobile friendly!
+Tested on an android phone, it works!
+
 Feel free to improve it! :)
