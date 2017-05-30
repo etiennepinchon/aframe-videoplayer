@@ -3,7 +3,7 @@ var AVideoPlayer = function() {
   // Vals
   this.duration         = 0;
   this.current_progress = 0;
-  this.progressWidth    = 0;
+  this.progressWidth    = 4;
   this.paused           = true;
 
   // Elems
@@ -29,17 +29,17 @@ var AVideoPlayer = function() {
     this.elControlVolume = document.getElementById('control-volume');
   }
 
-  this._determinateProgressWidth = function() {
+  /*this._determinateProgressWidth = function() {
     this.progressWidth = this.elProgressBar.getAttribute('geometry').width;
-  }
+  }*/
 
   /**
   * PROGRESS
   */
   this.setProgress = function(progress) {
-    if (this.progressWidth == undefined) {
+    /*if (this.progressWidth == undefined) {
       this.progressWidth == 4;
-    }
+    }*/
     var new_progress = this.progressWidth*progress;
     this._setProgressWidth(new_progress);
     var progress_coord = this._getProgressCoord();
